@@ -3,9 +3,11 @@
   "version": "1.6.1",
   "private": true,
   "scripts": {
-    "start": "forever --minUptime=1000 --spinSleepTime=1000 start --stack-size=10000 ./bin/cluster",
-    "stop": "forever --minUptime=1000 --spinSleepTime=1000 stop ./bin/cluster",
-    "restart": "forever --minUptime=1000 --spinSleepTime=1000 restart --stack-size=10000 ./bin/cluster",
+    "start": "node --stack-size=10000 ./bin/cluster",
+	"dev": "./node_modules/nodemon/bin/nodemon.js --stack-size=10000 ./bin/instance",
+	"index-update": "node --stack-size=10000 scripts/sync.js index update",
+    "cmc-update": "node --stack-size=10000 scripts/sync.js cmc",
+	"stop": "kill -2 $(cat tmp/cluster.pid)",
     "test": "node ./node_modules/jasmine/bin/jasmine.js"
   },
   "dependencies": {
@@ -13,8 +15,7 @@
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
-    "express": "~4.2.0",
-    "forever": "^0.15.3",
+    "express": "~4.2.0",  
     "jade": "~1.3.0",
     "jsonminify": "0.2.3",
     "markdown-js": "0.0.3",
