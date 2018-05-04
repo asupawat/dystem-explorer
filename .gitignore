@@ -30,7 +30,7 @@ package-lock.json
 
 .idea
 *~
-*.ico
+#.ico
 #*.png
 
 
