@@ -63,7 +63,7 @@ function create_lock(cb) {
     var fname = './tmp/' + database + '.pid';
     fs.appendFile(fname, process.pid, function (err) {
       if (err) {
-        console.log("Error: unable to create %s", fname);
+        console.log("Error: unable to create %s %s", fname, err);
         process.exit(1);
       } else {
         return cb();
