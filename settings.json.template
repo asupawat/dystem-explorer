@@ -131,6 +131,9 @@
   //amount of txs to index per address (stores latest n txs)
   "txcount": 100,
 
+  // access key for ipstack for peer geo lookup
+  "ipstack_access_key": "xxx",
+  
   //show total sent & received on address page (set false if PoS)
   "show_sent_received": true,
 

@@ -29,14 +29,18 @@ mongoose.connect(dbString, function(err) {
         var address = body[i].addr.split(':')[0];
         db.find_peer(address, function(peer) {
           if (peer) {
-            // peer already exists
+            // peer already exists	
+			
             loop.next();
           } else {
-            request({uri: 'http://freegeoip.net/json/' + address, json: true}, function (error, response, geo) {
-              db.create_peer({
+            request({uri: 'http://api.ipstack.com/'+ address+ '?access_key='+settings.ipstack_access_key+'&output=json&legacy=1' , json: true}, function (error, response, geo) {
+              
+			  console.log(body[i])
+			  
+			  db.create_peer({
                 address: address,
                 protocol: body[i].version,
-                version: body[i].subversion.replace('/', '').replace('/', ''),
+                version: body[i].subver.replace('/', '').replace('/', ''),
                 country: geo.country_name
               }, function(){
                 loop.next();
