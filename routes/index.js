@@ -128,13 +128,13 @@ router.get('/', function(req, res) {
 });
 
 router.get('/info', function(req, res) {
-        res.render('error', {
+    /*res.render('error', {
             message: "Not found",
             error: 404
-        });
+    });*/
 
     //route_get_index(res, null);
-    //res.render('info', { active: 'info', address: settings.address, hashes: settings.api });
+    res.render('info', { active: 'info', address: settings.address, hashes: settings.api });
 });
 
 router.get('/markets', function(req, res) {
