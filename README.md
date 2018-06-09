@@ -3,10 +3,6 @@ Iquidus Explorer - 1.6.1
 
 An open source block explorer written in node.js.
 
-### See it in action
-
-*  [Dystem](https://explorer.dystem.io)
-
 ### Requires
 
 *  node.js >= 0.10.28
